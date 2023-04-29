@@ -15,6 +15,11 @@
     "node-fetch": "2.6.1",
     "yt-search": "^2.10.4"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lindionez/texas-api.git"
+  },
+  "homepage": "https://github.com/lindionez/texas-api#readme",
   "author": "Lindionez",
   "license": "MIT",
   "description": "Request-api"
