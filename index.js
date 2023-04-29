@@ -1,3 +1,4 @@
+require ('dotenv').config()
 const express = require("express");
 const app = express();
 const yts = require("yt-search");
@@ -7,8 +8,7 @@ const { dow } = require("./functions");
 
 // Setando como json
 app.use(express.json());
-app.listen(5000);
-console.log("start");
+app.listen(process.env.PORT || 5000);
 app.use(express.static("public"));
 
 app.get("/play", async (req, res) => {
