@@ -1,10 +1,9 @@
-require ('dotenv').config()
+require('dotenv').config()
 const express = require("express");
 const app = express();
-const yts = require("yt-search");
 const biblia = require("biblia.js");
 
-const { dow } = require("./functions");
+const { util, dow } = require("./functions");
 
 // Setando como json
 app.use(express.json());
@@ -15,14 +14,14 @@ app.get("/play", async (req, res) => {
   try {
     const p = req.query.p;
     if (!p) return res.json({ status: false, message: "Coloque o título da música." });
-    const play2 = await yts(p);
-    const filtro = play2.all.filter((result) => result?.timestamp?.replace(/[^0-9]/g, "") <= 2500 && result?.timestamp?.replace(/[^0-9]/g, "") !== 000);
-    if (!filtro.length) return res.json({ status: false, message: "Nenhum resultado encontrado." });
-    const play1 = filtro[Math.floor(Math.random() * 3)];
+    const play1 = await util.ytSr(p, res)
+    if (play1 === undefined) return res.json({ status: false, message: "Nenhum resultado encontrado." });
+    const audio = await util.ytDown(play1.url)
+    if (audio === undefined) return res.json({ status: false })
     res.json({
       status: true,
       Pedido: p,
-      result: await dow.ytDown(play1.url),
+      result: audio,
     });
   } catch (error) {
     console.log("API ERROR:", error);
@@ -33,20 +32,48 @@ app.get("/play", async (req, res) => {
 app.get("/playurl", async (req, res) => {
   const url = req.query.url;
   if (!url) return res.json({ status: false, message: "Adicione a url" });
+  const audio = await util.ytDown(url)
+  if (audio === undefined) return res.json({ status: false })
   res.json({
     status: true,
     Pedido: url,
-    result: await dow.ytDown(url),
+    result: audio,
+  });
+});
+
+app.get("/playurl2", async (req, res) => {
+  const url = req.query.url;
+  if (!url) return res.json({ status: false, message: "Adicione a url" });
+  const audio = await dow.youtube(url, 'mp3')
+  if (audio.error) return res.json({ status: false })
+  res.json({
+    status: true,
+    Pedido: url,
+    result: audio
   });
 });
 
 app.get("/yturl", async (req, res) => {
   const url = req.query.url;
   if (!url) return res.json({ status: false, message: "Adicione a url" });
+  const video = await util.ytDown(url, true)
+  if (video === undefined) return res.json({ status: false })
   res.json({
     status: true,
     Pedido: url,
-    result: await dow.ytDown(url, true),
+    result: video,
+  });
+});
+
+app.get("/yturl2", async (req, res) => {
+  const url = req.query.url;
+  if (!url) return res.json({ status: false, message: "Adicione a url" });
+  const audio = await dow.youtube(url)
+  if (audio.error) return res.json({ status: false })
+  res.json({
+    status: true,
+    Pedido: url,
+    result: audio
   });
 });
 

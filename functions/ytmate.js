@@ -1,7 +1,13 @@
+// const buffer = Buffer.from(mediaObject.data, 'base64')
+// if (Buffer.byteLength(buffer) >= 17000000) document = true
+// if (Buffer.byteLength(buffer) <= 5000) return await texas.sendMessage(from, error, { quotedMessageId: mek })
+// if (Buffer.byteLength(buffer) >= 60000000) return await texas.sendMessage(from, `A media encontrada possui mais que 60MB\nEscolha uma menor.`, { quotedMessageId: mek })
+
 const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 
 const y2mateV = async (yutub) => {
+  try {
   function post(url, formdata) {
     return fetch(url, {
       method: 'POST',
@@ -43,12 +49,16 @@ const y2mateV = async (yutub) => {
   const meme = await res2.json()
   const supp = cheerio.load(meme.result)
   let link = supp('div').find('a').attr('href')
-  hasil.push({ thumb, judul, quality, tipe, size, output, link })
+  hasil.push({ status: true, thumb, judul, quality, tipe, size, output, link })
   return hasil
+} catch (e) {
+  return [{ status: false }]
+}
 }
 
 
 const y2mateA = async (yutub) => {
+  try{
   function post(url, formdata) {
     return fetch(url, {
       method: 'POST',
@@ -90,8 +100,11 @@ const y2mateA = async (yutub) => {
   const meme = await res2.json()
   const supp = cheerio.load(meme.result)
   let link = supp('div').find('a').attr('href')
-  hasil.push({ thumb, judul, quality, tipe, size, output, link })
+  hasil.push({ status: true, thumb, judul, quality, tipe, size, output, link })
   return hasil
+} catch (e) {
+  return [{ status: false }]
+}
 }
 
 const ytDown = async (url, type = "mp3") => {
