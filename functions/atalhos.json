@@ -1,0 +1,3 @@
+{
+    "function_para_download_url": "const axios = require('axios');      function getBuffer(url) {  return axios.get(url, {  httpsAgent,  responseType: 'arraybuffer'  }).then(response => Buffer.from(response.data, 'binary'))}"
+}

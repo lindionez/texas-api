@@ -25,7 +25,7 @@
         <p>⬇️ Texas - API ⬇️</p>
         <ul>
           <li>
-            <a href="./ytdownloader.html">Youtube Downloader</a>
+            <a href="./ytdownloader.html">YouTube</a>
           </li>
           <li>
             <a class="active" href="./bibliasagrada.html">Bíblia Sagrada</a>
@@ -44,41 +44,6 @@
             <th></th>
           </tr>
         </thead>
-        <!--          
-          app.get("/biblia/randomcapitulo", (req, res) => {
-            res.json(biblia.getRandomCapitulo());
-          });
-          
-          app.get("/biblia/randomversiculo", (req, res) => {
-            res.json(biblia.getRandomVersiculo());
-          });
-          
-          app.get("/biblia/getcapitulo", (req, res) => {
-            const livro = req.query.livro;
-            const capitulo = req.query.ca;
-            const isArray = req.query.array;
-            if (!livro || !capitulo) return res.json({ status: false, message: "Parâmetros incorretos." });
-            res.json(biblia.getCapitulo(livro, capitulo, isArray));
-          });
-          
-          app.get("/biblia/getversiculo", (req, res) => {
-            const livro = req.query.livro;
-            const versiculo = req.query.vs;
-            if (!livro || !versiculo) return res.json({ status: false, message: "Parâmetros incorretos." });
-            res.json(biblia.getVersiculo(livro, versiculo));
-          });
-          
-          app.get("/biblia/pesquisar", (req, res) => {
-            const palavra = req.query.palavra;
-            if (!palavra) return res.json({ status: false, message: "Parâmetros incorretos." });
-            res.json(biblia.pesquisar(palavra));
-          });
-          
-          app.get("/biblia/pesquisararray", (req, res) => {
-            const palavra = req.query.palavra;
-            if (!palavra) return res.json({ status: false, message: "Parâmetros incorretos." });
-            res.json(biblia.pesquisarPalavra(palavra));
-          }); -->
         <tbody>
           <tr>
             <td>1</td>
@@ -127,7 +92,7 @@
           </tr>
           <tr>
             <td>4</td>
-            <td>Pesquisar Capítulo (Array)</td>
+            <td>Pesquisar Capítulo 2</td>
             <td>Pesquisa um capítulo da Bíblia e retorna um array.</td>
             <td class="right">
               <a href="/biblia/getcapitulo?livro=Salmos&ca=23&array" target="_blank">
@@ -172,7 +137,7 @@
           </tr>
           <tr>
             <td>7</td>
-            <td>Pesquisar Palavra (Array)</td>
+            <td>Pesquisar Palavra 2</td>
             <td>Pesquisa uma palavra na Bíblia e retorna um array.</td>
             <td class="right">
               <a href="/biblia/pesquisararray?palavra=amor" target="_blank">

@@ -1,10 +1,14 @@
 body {
-  background: #0f172a;
+  background-image: url("/imgs/fundo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #000000;
   color: #f1f5f9;
   display: flex;
   flex-direction: column-reverse;
   font-family: "Ubuntu", sans-serif;
 }
+
 
 @media (min-width: 640px) {
   body {
@@ -15,7 +19,7 @@ body {
 aside {
   box-sizing: border-box;
   border-top: 1px solid #334155;
-
+  background-color: rgba(0, 128, 0, 0.05);
   padding: 16px;
 }
 
@@ -49,7 +53,7 @@ aside nav ul li {
 aside nav a {
   width: 100%;
   background: transparent;
-  border-radius: 4px;
+  border-radius: 1rem 0.5rem;
   padding: 8px;
   color: #f1f5f9;
   text-align: center;
@@ -70,8 +74,8 @@ aside nav.links {
 
 aside nav.links p {
   text-align: center;
-  font-size: 16px;
-  color: #94a3b8;
+  font-size: 17px;
+  color: #0004ff;
 }
 
 h1,
@@ -85,7 +89,7 @@ h6 {
 
 .siteName {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
@@ -97,7 +101,7 @@ h6 {
 
 .wrapper {
   width: 100%;
-  max-width: 640px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -134,8 +138,11 @@ header p {
 }
 
 header img.perfil {
-  width: 8rem;
-  border-radius: 100%;
+  width: 13rem;
+  border-radius: 5rem 1.5rem;
+}
+header img.perfil:hover {
+  border-radius: 0%;
 }
 
 header h1 {
@@ -188,7 +195,8 @@ header p {
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.6);
   font-size: 1.3rem;
-  transition: transform 120ms cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  transition: transform 50ms cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  border-radius: 2rem 1rem;
 }
 
 .main ul li a:hover {
@@ -228,6 +236,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-radius: 16px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 thead {
