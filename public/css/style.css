@@ -1,6 +1,6 @@
 body {
   background-image: url("/imgs/fundo.jpg");
-  background-size: cover;
+  background-size: auto cover;
   background-position: center;
   background-color: #000000;
   color: #f1f5f9;
@@ -12,6 +12,7 @@ body {
 
 @media (min-width: 640px) {
   body {
+    background-size: cover;
     flex-direction: row;
   }
 }
