@@ -10,11 +10,28 @@ app.use(express.json());
 app.listen(process.env.PORT || 5000);
 app.use(express.static("public"));
 
+app.get("/ytsearh", async (req, res) => {
+  try {
+    const p = req.query.p;
+    if (!p) return res.json({ status: false, message: "Adicione um título." });
+    const play1 = await util.ytSr(p, true)
+    if (play1 === undefined) return res.json({ status: false, message: "Nenhum resultado encontrado." });
+    res.json({
+      status: true,
+      Pedido: p,
+      result: play1,
+    });
+  } catch (error) {
+    console.log("API ERROR:", error);
+    res.json({ status: false });
+  }
+});
+
 app.get("/play", async (req, res) => {
   try {
     const p = req.query.p;
     if (!p) return res.json({ status: false, message: "Coloque o título da música." });
-    const play1 = await util.ytSr(p, res)
+    const play1 = await util.ytSr(p)
     if (play1 === undefined) return res.json({ status: false, message: "Nenhum resultado encontrado." });
     const audio = await util.ytDown(play1.url)
     if (audio === undefined) return res.json({ status: false })
@@ -41,18 +58,6 @@ app.get("/playurl", async (req, res) => {
   });
 });
 
-app.get("/playurl2", async (req, res) => {
-  const url = req.query.url;
-  if (!url) return res.json({ status: false, message: "Adicione a url" });
-  const audio = await dow.youtube(url, 'mp3')
-  if (audio.error) return res.json({ status: false })
-  res.json({
-    status: true,
-    Pedido: url,
-    result: audio
-  });
-});
-
 app.get("/yturl", async (req, res) => {
   const url = req.query.url;
   if (!url) return res.json({ status: false, message: "Adicione a url" });
@@ -62,18 +67,6 @@ app.get("/yturl", async (req, res) => {
     status: true,
     Pedido: url,
     result: video,
-  });
-});
-
-app.get("/yturl2", async (req, res) => {
-  const url = req.query.url;
-  if (!url) return res.json({ status: false, message: "Adicione a url" });
-  const audio = await dow.youtube(url)
-  if (audio.error) return res.json({ status: false })
-  res.json({
-    status: true,
-    Pedido: url,
-    result: audio
   });
 });
 
