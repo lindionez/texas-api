@@ -67,7 +67,7 @@ aside nav a {
 }
 
 aside nav a:hover {
-  background: transparent;
+  background: #5152587a;
   color: #fff;
   border-radius: 1.1rem 0.6rem;
   box-shadow: 0 0 5px #7a7975,
@@ -221,6 +221,10 @@ header {
   color: #ffffff;
 }
 
+.wrapper h1 {
+  font-size: 2rem;
+}
+
 @media (min-width: 640px) {
   .wrapper {
     gap: 6rem;
@@ -229,6 +233,10 @@ header {
   header {
     gap: 2rem;
   }
+
+  .wrapper h1 {
+    font-size: 3rem;
+}
 }
 
 header h1,
@@ -329,6 +337,10 @@ header p {
 
 .verdineo {
   color: #22c55e;
+}
+
+.azulzineo {
+  color: #0344f7;
 }
 
 /* -------------------------------------------------------------------- */
