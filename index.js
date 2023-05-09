@@ -130,28 +130,6 @@ app.get("/biblia/getversiculo", (req, res) => {
   });
 });
 
-app.get("/biblia/pesquisar", (req, res) => {
-  console.log(`[${horagora()}] caminho: /biblia/pesquisar`)
-  const palavra = req.query.palavra;
-  if (!palavra) return res.json({ status: 400, message: "Parâmetros incorretos." });
-  res.json({
-    status: 200,
-    pedido: palavra,
-    result: biblia.pesquisar(palavra)
-  });
-});
-
-app.get("/biblia/pesquisararray", (req, res) => {
-  console.log(`[${horagora()}] caminho: /biblia/pesquisararray`)
-  const palavra = req.query.palavra;
-  if (!palavra) return res.json({ status: 400, message: "Parâmetros incorretos." });
-  res.json({
-    status: 200,
-    pedido: palavra,
-    result: biblia.pesquisarPalavra(palavra)
-  });
-});
-
 app.get("/meme", (req, res) => {
   console.log(`[${horagora()}] caminho: /meme`)
   res.json({
