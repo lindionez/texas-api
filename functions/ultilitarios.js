@@ -1,8 +1,5 @@
 const yts = require("yt-search");
 
-const { y2mateA, y2mateV } = require('./ytmate')
-const atalhos = require('./atalhos.json')
-
 const ytSr = async(q, noFilter) => {
     const play2 = await yts(q);
     if (noFilter) return play2.all
@@ -12,20 +9,6 @@ const ytSr = async(q, noFilter) => {
     return play1
 }
 
-const ytDown = async (url, isVideo = false) => {
-    const Play = isVideo ? await y2mateV(url) : await y2mateA(url)
-    if (!Play[0].status) return undefined
-    const OBJ = {
-        titulo: Play[0].judul,
-        link_youTube: url,
-        tamanho: Play[0].size,
-        foto: Play[0].thumb,
-        url: Play[0].link,
-        function_para_baixar_url: atalhos.function_para_baixar_url
-    }
-    return OBJ
-}
-
 const randonAtalho = (atalho) => {
 const random = atalho[Math.floor(Math.random() * atalho.length)]
 return random
@@ -33,6 +16,5 @@ return random
 
 module.exports = {
     ytSr,
-    ytDown,
     randonAtalho
 }
