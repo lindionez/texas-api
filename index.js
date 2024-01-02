@@ -88,22 +88,40 @@ app.get("/biblia/pesquisarpalavraarray", async (req, res) => {
   console.log(`[${horagora()}] caminho: /biblia/pesquisarpalavraarray`)
   const palavra = req.query.palavra;
   if (!palavra) return res.status(400).json({ status: 400, message: "Parâmetros incorretos." });
-  res.status(200).json({
-    status: 200,
-    pedido: palavra,
-    result: await biblia.pesquisarPalavra(palavra)
-  });
+  try {
+    res.status(200).json({
+      status: 200,
+      pedido: palavra,
+      result: await biblia.pesquisarPalavra(palavra)
+    });
+  } catch (e) {
+    console.log(e.message)
+    res.status(500).json({
+      status: 500,
+      pedido: palavra,
+      result: []
+    })
+  }
 });
 
 app.get("/biblia/pesquisarpalavra", async (req, res) => {
   console.log(`[${horagora()}] caminho: /biblia/pesquisarpalavra`)
   const palavra = req.query.palavra;
   if (!palavra) return res.status(400).json({ status: 400, message: "Parâmetros incorretos." });
-  res.status(200).json({
-    status: 200,
-    pedido: palavra,
-    result: await biblia.pesquisar(palavra)
-  });
+  try {
+    res.status(200).json({
+      status: 200,
+      pedido: palavra,
+      result: await biblia.pesquisar(palavra)
+    });
+  } catch (e) {
+    console.log(e.message)
+    res.status(500).json({
+      status: 500,
+      pedido: palavra,
+      result: []
+    })
+  }
 });
 
 app.get("/meme", (req, res) => {

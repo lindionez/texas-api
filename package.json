@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "biblia.js": "^0.0.7",
+    "biblia.js": "^0.0.8",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "moment-timezone": "^0.5.43",
