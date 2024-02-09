@@ -1,0 +1,30 @@
+/* ----------------------------- Public CSS ----------------------------------- */
+
+body {
+    background-color: #6bffa18e;
+    background-size: auto cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    font-family: "Ubuntu", sans-serif;
+    position: relative;
+    text-align: center;
+}
+
+body h2 {
+    font-size: 1.6rem;
+}
+
+body h3 {
+    font: 1.1rem sans-serif;
+}
+
+@media (max-width: 640px) {
+    footer {
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        width: 90%;
+        text-align: center;
+    }
+}
