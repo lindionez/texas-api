@@ -18,24 +18,6 @@ app.get("/online", (req, res) => {
   res.status(200).json({ status: 200 })
 });
 
-app.get("/ytsearh", async (req, res) => {
-  try {
-    console.log(`[${horagora()}] caminho: /ytsearh`)
-    const p = req.query.p;
-    if (!p) return res.status(400).json({ status: 400, message: "Adicione um título." });
-    const play1 = await util.ytSr(p, true)
-    if (play1 === undefined) return res.status(400).json({ status: 400, message: "Nenhum resultado encontrado." });
-    res.status(200).json({
-      status: 200,
-      Pedido: p,
-      result: play1,
-    });
-  } catch (error) {
-    console.log("API ERROR:", error);
-    res.json({ status: false });
-  }
-});
-
 app.get("/biblia", (req, res) => {
   console.log(`[${horagora()}] caminho: /biblia`)
   res.status(400).json({ status: 400, message: "Parâmetros incorretos." });

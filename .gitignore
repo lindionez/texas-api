@@ -146,7 +146,3 @@ session.json
 .env
 
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
-
-.texasQr
-package-lock.json
-.jenifferQr
