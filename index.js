@@ -12,7 +12,7 @@ const { util, dow, atalhos } = require("./functions");
 app.use(express.json());
 app.listen(process.env.PORT || 5000);
 app.use(express.static("public"));
-console.log(`[${horagora()}] Start code`)
+util.startOnbiblia()
 
 app.get("/online", (req, res) => {
   res.status(200).json({ status: 200 })

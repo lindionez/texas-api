@@ -222,7 +222,7 @@ header {
 }
 
 .wrapper h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 @media (min-width: 640px) {
@@ -235,7 +235,7 @@ header {
   }
 
   .wrapper h1 {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
 
@@ -246,7 +246,7 @@ header p {
 }
 
 header img.perfil {
-  width: 13rem;
+  width: 60%;
   border-radius: 5rem 1.5rem;
 }
 
