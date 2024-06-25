@@ -6,7 +6,7 @@ const moment = require('moment-timezone')
 moment.tz.setDefault('America/Sao_Paulo').locale('br')
 const horagora = () => moment.tz('America/Sao_Paulo').format('HH:mm:ss')
 
-const { util, dow, atalhos } = require("./functions");
+const { util } = require("./functions");
 
 // Setando como json
 app.use(express.json());
@@ -104,49 +104,4 @@ app.get("/biblia/pesquisarpalavra", async (req, res) => {
       result: []
     })
   }
-});
-
-app.get("/meme", (req, res) => {
-  console.log(`[${horagora()}] caminho: /meme`)
-  res.status(200).json({
-    status: 200,
-    pedido: 'Memes aleatórios',
-    result: util.randonAtalho(atalhos.memes)
-  })
-});
-
-app.get("/vibe", (req, res) => {
-  console.log(`[${horagora()}] caminho: /vibe`)
-  res.status(200).json({
-    status: 200,
-    pedido: 'Vibes aleatórias',
-    result: util.randonAtalho(atalhos.vibesV)
-  })
-});
-
-app.get("/eununca", (req, res) => {
-  console.log(`[${horagora()}] caminho: /eununca`)
-  res.status(200).json({
-    status: 200,
-    pedido: 'Eu nunca',
-    result: util.randonAtalho(atalhos.eununca)
-  })
-});
-
-app.get("/eusou", (req, res) => {
-  console.log(`[${horagora()}] caminho: /eusou`)
-  res.status(200).json({
-    status: 200,
-    pedido: 'Eu sou',
-    result: 'Você é ' + util.randonAtalho(atalhos.eusou)
-  })
-});
-
-app.get("/cancelado", (req, res) => {
-  console.log(`[${horagora()}] caminho: /cancelado`)
-  res.status(200).json({
-    status: 200,
-    pedido: 'Cancelado',
-    result: 'Você foi cancelado por ' + util.randonAtalho(atalhos.cancelado)
-  })
 });
