@@ -8,10 +8,10 @@
   },
   "keywords": [],
   "dependencies": {
-    "biblia.js": "^0.1.1",
+    "biblia.js": "^0.1.2",
     "chalk": "^4.1.2",
     "dotenv": "^16.0.3",
-    "express": "^4.19.2",
+    "express": "^4.21.1",
     "moment-timezone": "^0.5.43",
     "node-fetch": "2.6.1"
   },

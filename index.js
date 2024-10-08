@@ -76,14 +76,7 @@ app.get("/biblia/pesquisarpalavraarray", async (req, res) => {
       pedido: palavra,
       result: await biblia.pesquisarPalavra(palavra)
     });
-  } catch (e) {
-    console.log(e.message)
-    res.status(500).json({
-      status: 500,
-      pedido: palavra,
-      result: []
-    })
-  }
+  } catch (e) { console.log(e.message); res.status(500).json({ status: 500, pedido: palavra, result: [] }) }
 });
 
 app.get("/biblia/pesquisarpalavra", async (req, res) => {
@@ -91,17 +84,9 @@ app.get("/biblia/pesquisarpalavra", async (req, res) => {
   const palavra = req.query.palavra;
   if (!palavra) return res.status(400).json({ status: 400, message: "Parâmetros incorretos." });
   try {
-    res.status(200).json({
-      status: 200,
-      pedido: palavra,
-      result: await biblia.pesquisar(palavra)
-    });
+    res.status(200).json({ status: 200, pedido: palavra, result: await biblia.pesquisar(palavra) });
   } catch (e) {
     console.log(e.message)
-    res.status(500).json({
-      status: 500,
-      pedido: palavra,
-      result: []
-    })
+    res.status(500).json({ status: 500, pedido: palavra, result: [] })
   }
 });
