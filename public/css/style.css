@@ -235,7 +235,7 @@ header {
   }
 
   .wrapper h1 {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
   }
 }
 
@@ -259,7 +259,7 @@ header h1 {
 }
 
 header h1 span {
-  transition: color 150ms linear;
+  transition: color 250ms linear;
 }
 
 header p {
