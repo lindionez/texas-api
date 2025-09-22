@@ -10,4 +10,4 @@
 </div>
 
 ## Url:
-http://bit.ly/texasbot
+https://texaswho.net.br
