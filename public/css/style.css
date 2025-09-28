@@ -29,7 +29,8 @@ aside {
     border-top: 0;
     border-right: 1px solid #334155;
     width: 250px;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
   }
 }
 
@@ -165,18 +166,52 @@ aside nav a span:nth-child(4) {
 }
 
 aside nav a.active {
-  background: #22c55e;
+  background: #43c522;
 }
 
 aside nav.links {
   border-top: 1px solid #334155;
 }
 
-aside nav.links p {
+
+.links {
+  margin-top: 20px;
   text-align: center;
-  font-size: 17px;
-  color: #fffb04;
 }
+
+.links h3 {
+  color: #f4c003;
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-shadow: 0 0 6px #000, 0 0 12px #f4c003;
+  font-size: 1.1rem;
+}
+
+.links ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.links ul li a {
+  display: block;
+  background: #1e293b;
+  color: #f1f5f9;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 1rem 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px #00000055;
+}
+
+.links ul li a:hover {
+  background: #334155;
+  box-shadow: 0 0 8px #f4c003, 0 0 16px #f4c00366;
+  transform: scale(1.05);
+}
+
 
 h1,
 h2,
