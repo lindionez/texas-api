@@ -1,6 +1,6 @@
 {
   "name": "texas-site.js",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -8,10 +8,10 @@
   },
   "keywords": [],
   "dependencies": {
-    "biblia.js": "^0.1.4",
+    "biblia.js": "^0.1.5",
     "chalk": "^4.1.2",
     "dotenv": "^16.0.3",
-    "express": "^4.21.2",
+    "express": "^5.2.1",
     "moment-timezone": "^0.5.43",
     "node-fetch": "2.6.1"
   },
