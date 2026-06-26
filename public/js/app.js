@@ -6,7 +6,10 @@
 const h1 = document.querySelector("h1");
 const h1Text = h1.textContent;
 const letters = h1Text.split("");
-h1.innerHTML = letters.map((letter) => `<span>${letter}</span>`).join("");
+// Espaços nao entram em span (senão display:inline-block os engole)
+h1.innerHTML = letters
+  .map((letter) => letter === " " ? " " : `<span>${letter}</span>`)
+  .join("");
 
 const colors = [
   "#ec4899",
@@ -53,7 +56,9 @@ if (buttonsList && typeof linksData !== "undefined") {
           ${link.icon}
         </div>
         <div class="text">${link.name}</div>
-        <div class="spacer empty"></div>
+        <div class="spacer ${link.colorClass} icon-right">
+          ${link.icon}
+        </div>
       </a>
     </li>
   `

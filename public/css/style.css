@@ -30,10 +30,8 @@
   box-sizing: border-box;
 }
 
-/* (regra de scroll movida para dentro do bloco html acima) */
-
-/* Fundo fixo via pseudo-elemento — evita o bug de rebolada no mobile */
 html {
+  scroll-behavior: smooth;
   height: 100%;
 }
 
@@ -50,9 +48,17 @@ body {
   isolation: isolate;
 }
 
-/* Fundo real fixo — renderizado no html para não travar no iOS/Android */
-html {
-  scroll-behavior: smooth;
+/*
+  Fundo fixo — usando pseudo-elemento para evitar o bug de
+  rebolada no iOS/Android que acontece com background-attachment: fixed no body.
+  O pseudo-elemento com position: fixed cobre a tela toda e
+  nao acompanha o scroll.
+*/
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
   background-color: #050a10;
   background-image:
     radial-gradient(ellipse 80% 60% at 50% -20%, rgba(34, 197, 94, 0.12) 0%, transparent 60%),
@@ -60,14 +66,15 @@ html {
     url("/imgs/fundo.jpg");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  pointer-events: none;
 }
 
-/* Partículas de estrelas animadas no fundo */
-body::before {
+/* Particulas de estrelas animadas */
+body::after {
   content: '';
   position: fixed;
   inset: 0;
+  z-index: -1;
   background-image:
     radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.6) 0%, transparent 100%),
     radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
@@ -76,27 +83,16 @@ body::before {
     radial-gradient(1px 1px at 70% 50%, rgba(255,255,255,0.3) 0%, transparent 100%),
     radial-gradient(2px 2px at 35% 15%, rgba(34,197,94,0.7) 0%, transparent 100%),
     radial-gradient(2px 2px at 90% 40%, rgba(244,192,3,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 60% 85%, rgba(168,85,247,0.6) 0%, transparent 100%);
+    radial-gradient(1px 1px at 60% 85%, rgba(168,85,247,0.6) 0%, transparent 100%),
+    /* escurecimento gradual de baixo */
+    linear-gradient(180deg, rgba(5,10,16,0) 0%, rgba(5,10,16,0.35) 60%, rgba(5,10,16,0.75) 100%);
   pointer-events: none;
-  z-index: 0;
   animation: twinkle 6s ease-in-out infinite alternate;
 }
 
 @keyframes twinkle {
-  0%   { opacity: 0.4; }
+  0%   { opacity: 0.5; }
   100% { opacity: 1; }
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(180deg,
-    rgba(5, 10, 16, 0) 0%,
-    rgba(5, 10, 16, 0.3) 60%,
-    rgba(5, 10, 16, 0.7) 100%);
-  pointer-events: none;
-  z-index: 0;
 }
 
 @media (min-width: 640px) {
@@ -610,15 +606,19 @@ header p {
   transform: scale(1.12) rotate(-4deg);
 }
 
-.main ul li a .spacer.empty {
-  display: none;
+/* Ícone direito — sempre visível, simetriza o botão */
+.main ul li a .spacer.icon-right {
+  display: flex;
 }
 
-@media (min-width: 640px) {
-  .main ul li a .spacer.empty {
-    display: block;
-    opacity: 0;
-  }
+/* Hover: ícone direito gira ao contrário do esquerdo */
+.main ul li a:hover .spacer.icon-right {
+  transform: scale(1.12) rotate(4deg);
+}
+
+/* (regra legada do empty — mantida caso seja usada em outro lugar) */
+.main ul li a .spacer.empty {
+  display: none;
 }
 
 /* Texto centralizado do botão */
