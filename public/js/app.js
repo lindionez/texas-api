@@ -29,3 +29,18 @@ const h1 = document.querySelector("h1");
       });
       currentColor++;
     }, 180);
+
+    const buttonsList = document.getElementById("buttons-list");
+    if (buttonsList && typeof linksData !== "undefined") {
+      buttonsList.innerHTML = linksData.map(link => `
+        <li>
+          <a target="_blank" href="${link.url}">
+            <div class="spacer ${link.colorClass}">
+              ${link.icon}
+            </div>
+            <div class="text">${link.name}</div>
+            <div class="spacer empty"></div>
+          </a>
+        </li>
+      `).join("");
+    }
