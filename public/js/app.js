@@ -77,7 +77,10 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.1 }
+  {
+    threshold: 0,
+    rootMargin: "0px 0px 80px 0px"
+  }
 );
 
 // Aplica delay progressivo e observa cada item

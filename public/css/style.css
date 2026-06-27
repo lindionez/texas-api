@@ -563,7 +563,7 @@ header p {
   border-radius: inherit;
 }
 
-.main ul li a:hover::before {
+.main ul li:hover a::before {
   opacity: 1;
 }
 
@@ -580,11 +580,11 @@ header p {
   border-radius: inherit;
 }
 
-.main ul li a:hover::after {
+.main ul li:hover a::after {
   left: 150%;
 }
 
-.main ul li a:hover {
+.main ul li:hover a {
   transform: translateY(-3px) scale(1.015);
   border-color: var(--green);
   color: #fff;
@@ -596,7 +596,7 @@ header p {
     inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
-.main ul li a:active {
+.main ul li:active a {
   transform: scale(0.98);
 }
 
@@ -612,7 +612,7 @@ header p {
   transition: transform 0.3s ease;
 }
 
-.main ul li a:hover .spacer {
+.main ul li:hover a .spacer {
   transform: scale(1.12) rotate(-4deg);
 }
 
@@ -622,7 +622,7 @@ header p {
 }
 
 /* Hover: ícone direito gira ao contrário do esquerdo */
-.main ul li a:hover .spacer.icon-right {
+.main ul li:hover a .spacer.icon-right {
   transform: scale(1.12) rotate(4deg);
 }
 
