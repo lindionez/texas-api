@@ -657,6 +657,13 @@ header p {
   box-shadow: 0 0 10px var(--green-glow);
 }
 
+
+.amarelinio {
+  color: #ffee00;
+  background: rgba(255, 255, 0, 0.12);
+  box-shadow: 0 0 10px rgba(255,255,0,0.2);
+}
+
 /* =============================================
    TABELAS (mantido do original)
    ============================================= */
